@@ -3,9 +3,16 @@
 {
 	C3.Plugins.AtheiosTeam_AtheiosModule.Exps =
 	{
-		Double(number)
+		lastmessage()
 		{
-			return number * 2;
+			//implementation
+			return this._lastMessageAth;
+		},
+
+		lastresponse()
+		{
+			//implementation
+			return this._lastResponseAth;
 		}
 	};
 }

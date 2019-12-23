@@ -1,38 +1,81 @@
 ﻿{
-	"custom": {
+	"connection": {
 		"conditions": [
 			{
-				"id": "is-large-number",
-				"scriptName": "IsLargeNumber",
+				"id": "oninit",
+				"scriptName": "oninit",
+				"isTrigger": "true",
+				"highlight": false
+			},
+			{
+				"id": "onmessage",
+				"scriptName": "onmessage",
+				"isTrigger": "true",
+				"highlight": true
+			},
+			{
+				"id": "onresponse",
+				"scriptName": "onresponse",
 				"highlight": true,
-				"params": [
-					{
-						"id": "number",
-						"type": "number"
-					}
-				]
+				"isTrigger": true
 			}
 		],
 		"actions": [
 			{
-				"id": "do-alert",
-				"scriptName": "Alert",
-				"highlight": true
+				"id": "initpreview",
+				"scriptName": "Initpreview",
+				"highlight": false
+			},
+			{
+				"id": "sendwithdata",
+				"scriptName": "sendwithdata",
+				"highlight": true,
+				"params": [
+					{
+						"id": "requesttype",
+						"type": "string"
+					},
+					{
+						"id": "jsondata",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "initlive",
+				"scriptName": "Initlive",
+				"highlight": false
+			},
+			{
+				"id": "sendwithdataid",
+				"scriptName": "Sendwithdataid",
+				"highlight": false,
+				"params": [
+					{
+						"id": "requestid",
+						"type": "string"
+					},
+					{
+						"id": "jsondata",
+						"type": "string"
+					},
+					{
+						"id": "requesttype",
+						"type": "string"
+					}
+				]
 			}
 		],
 		"expressions": [
 			{
-				"id": "double",
-				"expressionName": "Double",
-				"scriptName": "Double",
-				"highlight": true,
-				"returnType": "number",
-				"params": [
-					{
-						"id": "number",
-						"type": "number"
-					}
-				]
+				"id": "lastmessage",
+				"expressionName": "lastmessage",
+				"returnType": "any"
+			},
+			{
+				"id": "lastresponse",
+				"expressionName": "lastresponse",
+				"returnType": "string"
 			}
 		]
 	}

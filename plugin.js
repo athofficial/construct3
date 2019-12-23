@@ -12,7 +12,7 @@
 	const PLUGIN_ID = "AtheiosTeam_AtheiosModule";
 	////////////////////////////////////////////
 	
-	const PLUGIN_VERSION = "0.0.0.1";
+	const PLUGIN_VERSION = "0.0.0.2";
 	const PLUGIN_CATEGORY = "general";
 	
 	const PLUGIN_CLASS = SDK.Plugins.AtheiosTeam_AtheiosModule = class AtheiosModulePlugin extends SDK.IPluginBase
@@ -20,9 +20,9 @@
 		constructor()
 		{
 			super(PLUGIN_ID);
-			
+
 			SDK.Lang.PushContext("plugins." + PLUGIN_ID.toLowerCase());
-			
+
 			this._info.SetName(lang(".name"));
 			this._info.SetDescription(lang(".description"));
 			this._info.SetVersion(PLUGIN_VERSION);
@@ -30,21 +30,37 @@
 			this._info.SetAuthor("LegacyTRX");
 			this._info.SetHelpUrl(lang(".help-url"));
 			this._info.SetIsSingleGlobal(true);
-			
-			// Only support the newer C3 runtime
+
 			this._info.SetSupportedRuntimes(["c3"]);
-			
+
+			this._info.AddFileDependency(
+				{
+					filename: "c3runtime/atheios.js",
+					type: "inline-script"
+				});
+			this._info.AddFileDependency(
+				{
+					filename: "c3runtime/atheios-api.js",
+					type: "inline-script"
+				});
+			this._info.AddFileDependency(
+				{
+					filename: "c3runtime/hmac-sha256.js",
+					type: "inline-script"
+				});
+
 			SDK.Lang.PushContext(".properties");
-			
+
 			this._info.SetProperties([
-				new SDK.PluginProperty("integer", "test-property", 0)
+				new SDK.PluginProperty("text", "apiKey", "value"),
+				new SDK.PluginProperty("text", "apiSecret", "value")
+
 			]);
-			
-			SDK.Lang.PopContext();		// .properties
-			
+
+			SDK.Lang.PopContext(); //.properties
 			SDK.Lang.PopContext();
 		}
 	};
-	
+
 	PLUGIN_CLASS.Register(PLUGIN_ID, PLUGIN_CLASS);
 }

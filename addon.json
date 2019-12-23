@@ -3,7 +3,7 @@
 	"type": "plugin",
 	"name": "Atheios Module",
 	"id": "AtheiosTeam_AtheiosModule",
-	"version": "0.0.0.1",
+	"version": "0.0.0.2",
 	"author": "LegacyTRX",
 	"website": "https://www.atheios.org",
 	"documentation": "https://docs.atheios.org/construct3",
@@ -14,7 +14,9 @@
 						"instance.js"
 					],
 	"file-list": [
-		"c3runtime/plugin.js",
+		"c3runtime/atheios.js",
+		"c3runtime/atheios-api.js",
+		"c3runtime/hmac-sha256.js",
 		"c3runtime/type.js",
 		"c3runtime/instance.js",
 		"c3runtime/conditions.js",

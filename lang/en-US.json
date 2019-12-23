@@ -6,27 +6,35 @@
 			"atheiosteam_atheiosmodule": {
 				"name": "Atheios Module",
 				"description": "A third party module to support interfacing the Atheios blockchain.",
-				"help-url": "https://portal.atheios.org/construct3",
+				"help-url": "https://docs.atheios.org/construct3",
 				"properties": {
-					"test-property": {
-						"name": "Test property",
-						"desc": "A test number property. Displayed by 'Alert' action."
+					"apiKey": {
+						"name": "apiKey",
+						"desc": "apiKey"
+					},
+					"apiSecret": {
+						"name": "apiSecret",
+						"desc": "apiSecret"
 					}
 				},
 				"aceCategories": {
-					"custom": "Custom"
+					"connection": "Connection"
 				},
 				"conditions": {
-					"is-large-number": {
-						"list-name": "Is large number",
-						"display-text": "[i]{0}[/i] is a large number",
-						"description": "Test if a number is greater than 100.",
-						"params": {
-							"number": {
-								"name": "Number",
-								"desc": "Number to test if greater than 100."
-							}
-						}
+					"oninit": {
+						"list-name": "On Init",
+						"display-text": "On Init",
+						"description": "Triggered when the SDK is finished initialising."
+					},
+					"onmessage": {
+						"list-name": "On Message",
+						"display-text": "On Message",
+						"description": "Triggered when a message object is sent from the server to the client."
+					},
+					"onresponse": {
+						"list-name": "On Response",
+						"display-text": "On Response",
+						"description": "Triggered when a response object is sent from the server to the client."
 					}
 				},
 				"actions": {
@@ -34,19 +42,63 @@
 						"list-name": "Do alert",
 						"display-text": "Do alert",
 						"description": "Do a dummy alert."
-					}
-				},
-				"expressions": {
-					"double": {
-						"description": "Double a number.",
-						"translated-name": "Double",
+					},
+					"initpreview": {
+						"list-name": "InitPreview",
+						"display-text": "InitPreview",
+						"description": "Initialise the SDK and connect to the preview server."
+					},
+					"sendwithdata": {
+						"list-name": "SendWithData",
+						"display-text": "Send With Data {0} {1}",
+						"description": "Send with Data to Atheios servers from client.",
 						"params": {
-							"number": {
-								"name": "Number",
-								"desc": "The number to double."
+							"requesttype": {
+								"name": "RequestType",
+								"desc": "Request Type."
+							},
+							"jsondata": {
+								"name": "JSONData",
+								"desc": "JSON as a string."
+							}
+						}
+					},
+					"initlive": {
+						"list-name": "InitLive",
+						"display-text": "InitLive",
+						"description": "Initialise the SDK and connect to the live server."
+					},
+					"sendwithdataid": {
+						"list-name": "SendWithDataId",
+						"display-text": "Send With Data {0} {1} {2}",
+						"description": "Send with Data to Atheios servers from client.",
+						"params": {
+							"requestid": {
+								"name": "RequestId",
+								"desc": "User Request Id"
+							},
+							"jsondata": {
+								"name": "JSONData",
+								"desc": "JSON Data"
+							},
+							"requesttype": {
+								"name": "RequestType",
+								"desc": "Request Type"
 							}
 						}
 					}
+				},
+				"expressions": {
+					"lastmessage": {
+						"translated-name": "lastmessage",
+						"description": "Last Message received from Atheios."
+					},
+					"lastresponse": {
+						"translated-name": "lastresponse",
+						"description": "Last Message received from Atheios."
+					}
+
+
 				}
 			}
 		}
