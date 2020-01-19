@@ -18,7 +18,6 @@ console.log("Loading atheios.js");
 
     var Atheios = function() {};
     console.log("Defining Atheios scope");
-    console.log(Atheios);
     Atheios.prototype = {
 
         init: function(options) {
@@ -57,13 +56,15 @@ console.log("Loading atheios.js");
                     urlAddition = options.secret.substr(0, index) + "/" + urlAddition;
                 }
             }
-
+            console.log("INFO: ", C3.Plugins.AtheiosTeam_AtheiosModule._info);
             //return "wss://" + stage + "-" + urlAddition + ".portal.atheios.org/ws/" + credential + "/" + urlAddition;
-            return "wss://portal.atheios.org/ws/"+options.key;
+//            return "wss://portal.atheios.org/ws/"+options.key;
+            return "ws://localhost:3003/ws/"+options.key;
         },
 
         initPreview: function(options) {
             options.url = this.buildServiceUrl(false, options);
+            console.log("initPreview function: ",options);
             this.init(options);
         },
 
@@ -74,6 +75,7 @@ console.log("Loading atheios.js");
         },
 
         reset: function() {
+            console.log("reset function: ");
             this.initialised = false;
             this.connected = false;
             this.error = false;
@@ -86,6 +88,7 @@ console.log("Loading atheios.js");
         },
 
         connect: function() {
+            console.log("Connect function: ");
             this.reset();
 
             try {
@@ -95,11 +98,12 @@ console.log("Loading atheios.js");
                 this.webSocket.onerror = this.onWebSocketError.bind(this);
                 this.webSocket.onmessage = this.onWebSocketMessage.bind(this);
             } catch(e) {
-                this.log(e.message);
+                this.log("Error in connect function:", e.message);
             }
         },
 
         disconnect: function() {
+            console.log("Connect function: ");
             if (this.webSocket && this.connected) {
                 this.disconnected = true;
                 this.webSocket.close();
@@ -107,7 +111,7 @@ console.log("Loading atheios.js");
         },
 
         onWebSocketOpen: function(ev) {
-            this.log('WebSocket onOpen');
+            this.log('WebSocket onOpen: ', ev);
 
             if (this.options.onOpen) {
                 this.options.onOpen(ev);
@@ -117,7 +121,7 @@ console.log("Loading atheios.js");
         },
 
         onWebSocketClose: function(ev) {
-            this.log('WebSocket onClose');
+            this.log('WebSocket onClose: ', ev);
 
             if (this.options.onClose) {
                 this.options.onClose(ev);
@@ -175,6 +179,7 @@ console.log("Loading atheios.js");
             var resultType = result['@class'];
 
             if (resultType === '.AuthenticatedConnectResponse') {
+                console.log("Trigger handshake")
                 this.handshake(result);
             } else if (resultType.match(/Response$/)){
                 if (result['requestId']) {
@@ -222,6 +227,7 @@ console.log("Loading atheios.js");
                 this.webSocketSend(toSend);
 
             } else if (result['sessionId']) {
+                console.log("Initialised...")
                 this.sessionId = result['sessionId'];
                 this.initialised = true;
 
@@ -426,7 +432,7 @@ console.log("Loading atheios.js");
             };
         }
     };
-
+    console.log(Atheios);
     return Atheios;
 
 }));

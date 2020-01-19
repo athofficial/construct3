@@ -1,16 +1,44 @@
 console.log("atheios-api.js loaded");
 
+// Will provide more information on the account
+//
+// Response: AccountDetailsResponse
+//      value   as string
+//      currency as string
+//
+Atheios.prototype.accountDetailsRequest = function(onResponse , authToken, userId )
+{
+    var request = {};
+    request["authToken"] = authToken;
+    request["userId"] = userId;
+    atheios.sendWithData("AccountDetailsRequest", request, onResponse);
+}
+
+// username as string
+// password as string
+// Response: AuthorizationResponse
+//      authToken   as string
+//      displayName as string
+//      newPlayer as boolean
+//      userId as string
+//      requestID as string
+
+Atheios.prototype.authenticationRequest = function(password, userName, onResponse )
+{
+    var request = {};
+    request["password"] = password;
+    request["userName"] = userName;
+    atheios.sendWithData("AuthenticationRequest", request, onResponse);
+}
+
+
+
 Atheios.prototype.acceptChallengeRequest = function(challengeInstanceId, message, onResponse )
 {
     var request = {};
     request["challengeInstanceId"] = challengeInstanceId;
     request["message"] = message;
     atheios.sendWithData("AcceptChallengeRequest", request, onResponse);
-}
-Atheios.prototype.accountDetailsRequest = function(onResponse )
-{
-    var request = {};
-    atheios.sendWithData("AccountDetailsRequest", request, onResponse);
 }
 Atheios.prototype.analyticsRequest = function(data, end, key, start, onResponse )
 {
@@ -29,13 +57,6 @@ Atheios.prototype.aroundMeLeaderboardRequest = function(count, friendIds, leader
     request["leaderboardShortCode"] = leaderboardShortCode;
     request["social"] = social;
     atheios.sendWithData("AroundMeLeaderboardRequest", request, onResponse);
-}
-Atheios.prototype.authenticationRequest = function(password, userName, onResponse )
-{
-    var request = {};
-    request["password"] = password;
-    request["userName"] = userName;
-    atheios.sendWithData("AuthenticationRequest", request, onResponse);
 }
 Atheios.prototype.buyVirtualGoodsRequest = function(currencyType, quantity, shortCode, onResponse )
 {

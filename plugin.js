@@ -12,7 +12,7 @@
 	const PLUGIN_ID = "AtheiosTeam_AtheiosModule";
 	////////////////////////////////////////////
 	
-	const PLUGIN_VERSION = "0.0.0.2";
+	const PLUGIN_VERSION = "0.0.9.0";
 	const PLUGIN_CATEGORY = "general";
 	
 	const PLUGIN_CLASS = SDK.Plugins.AtheiosTeam_AtheiosModule = class AtheiosModulePlugin extends SDK.IPluginBase
