@@ -6,14 +6,12 @@
 		oninit()
 		{
 			//implementation
-			console.log("***DEBUG*** Oninit trigger");
 			return true;
 		},
 
 		onmessage()
 		{
 			//implementation
-			console.log("***DEBUG*** OnMessage Trigger");
 			return true;
 		},
 

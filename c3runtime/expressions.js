@@ -13,6 +13,11 @@
 		{
 			//implementation
 			return this._lastResponseAth;
+		},
+		apikey()
+		{
+			// value of the apikey plugin property
+			return this._apiKeyAth;
 		}
 	};
 }

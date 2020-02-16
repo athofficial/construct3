@@ -96,7 +96,12 @@
 					"lastresponse": {
 						"translated-name": "lastresponse",
 						"description": "Last Message received from Atheios."
+					},
+					"apikey": {
+						"translated-name": "apikey",
+						"description": "API Key of the game defined in properties."
 					}
+
 
 
 				}

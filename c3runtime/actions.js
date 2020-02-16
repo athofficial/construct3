@@ -15,7 +15,6 @@
 				onMessage: this.onMessageAth,
 				logger: console.log
 			};
-			console.log("DEBUG --- data: ", data);
 			this.atheios.initPreview(data);
 
 		},
@@ -23,7 +22,6 @@
 		sendwithdata(requesttype, jsondata)
 		{
 			//implementation
-			console.log("***DEBUG*** sendwithdata() called. " + requesttype + "  " + jsondata);
 
 			this.atheios.sendWithData(requesttype, JSON.parse(jsondata), this.onResponseAth);
 
@@ -41,14 +39,12 @@
 				logger: console.log
 			};
 
-			console.log("DEBUG --- data: ", data);
 			this.atheios.initLive(data);
 
 		},
 
 		Sendwithdataid(requesttype, jsondata, requestid)
 		{
-			console.log("***DEBUG*** sendwithdata() called. " + requesttype + "  " + jsondata + " requestid: " + requestid);
 			this.atheios.sendWithData(requesttype, JSON.parse(jsondata), this.onResponseAth, requestid);
 		}
 	};

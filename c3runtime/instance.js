@@ -82,7 +82,6 @@
 			this.onMessageAth = function(message)
 			{
 				currInstance._lastMessageAth = JSON.stringify(message);
-				console.log("***DEBUG*** onMessageAth: "+currInstance._lastMessageAth);
 
 				currInstance.C3Trigger.onmessage();
 			}
@@ -90,7 +89,6 @@
 			this.onResponseAth = function(response)
 			{
 				currInstance._lastResponseAth = JSON.stringify(response);
-				console.log("***DEBUG*** onResponseAth: "+currInstance._lastResponseAth);
 
 				currInstance.C3Trigger.onresponse();
 			}

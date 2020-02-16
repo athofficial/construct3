@@ -56,10 +56,9 @@ console.log("Loading atheios.js");
                     urlAddition = options.secret.substr(0, index) + "/" + urlAddition;
                 }
             }
-            console.log("INFO: ", C3.Plugins.AtheiosTeam_AtheiosModule._info);
             //return "wss://" + stage + "-" + urlAddition + ".portal.atheios.org/ws/" + credential + "/" + urlAddition;
-//            return "wss://portal.atheios.org/ws/"+options.key;
-            return "ws://localhost:3003/ws/"+options.key;
+            return "wss://portal.atheios.org/ws/"+options.key;
+//            return "ws://localhost:3003/ws/"+options.key;
         },
 
         initPreview: function(options) {

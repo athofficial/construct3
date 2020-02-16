@@ -76,6 +76,11 @@
 				"id": "lastresponse",
 				"expressionName": "lastresponse",
 				"returnType": "string"
+			},
+			{
+				"id": "apikey",
+				"expressionName": "apikey",
+				"returnType": "string"
 			}
 		]
 	}
