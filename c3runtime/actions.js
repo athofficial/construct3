@@ -9,7 +9,8 @@
 			//implementation
 			const data = {
 				key: this._apiKeyAth,
-				secret: this._apiSecret,
+				secret: this._apiSecretAth,
+				local: this._local,
 				onNonce: this.onNonceAth,
 				onInit: this.onInitAth,
 				onMessage: this.onMessageAth,
@@ -32,7 +33,8 @@
 			//implementation
 			const data = {
 				key: this._apiKeyAth,
-				secret: this._apiSecret,
+				secret: this._apiSecretAth,
+				local: this._local,
 				onNonce: this.onNonceAth,
 				onInit: this.onInitAth,
 				onMessage: this.onMessageAth,
