@@ -1,5 +1,3 @@
-console.log("Loading atheios.js");
-
 /* global define, module, require */
 
 
@@ -59,9 +57,9 @@ console.log("Loading atheios.js");
             //return "wss://" + stage + "-" + urlAddition + ".portal.atheios.org/ws/" + credential + "/" + urlAddition;
             console.log("This definition: %s", this);
             if (options.local==="true") {
-                return "ws://localhost:3003/ws/"+options.key+ "/" + "0.1.1";
+                return "ws://localhost:3010/ws/"+options.key+ "/" + "0.1.3";
             } else {
-                return "wss://portal.atheios.org/ws/" + options.key + "/" + "0.1.1";
+                return "wss://wss.atheios.org/ws/" + options.key + "/" + "0.1.3";
             }
         },
 
@@ -182,8 +180,14 @@ console.log("Loading atheios.js");
             var resultType = result['@class'];
 
             if (resultType === '.AuthenticatedConnectResponse') {
-                console.log("Trigger handshake")
-                this.handshake(result);
+                if (result['error']) {
+                    console.log("Error found.");
+                    this.error=true;
+                    this.disconnect();
+                } else {
+                    console.log("Trigger handshake")
+                    this.handshake(result);
+                }
             } else if (resultType.match(/Response$/)){
                 if (result['error']) {
                     console.log("Error found.");
@@ -439,7 +443,6 @@ console.log("Loading atheios.js");
             };
         }
     };
-    console.log(Atheios);
     return Atheios;
 
 }));
