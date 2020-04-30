@@ -191,7 +191,11 @@
             } else if (resultType.match(/Response$/)){
                 if (result['error']) {
                     console.log("Error found.");
-                    this.disconnect();
+//                    this.disconnect();
+                    // Attemp a re-connection if not in error state or deliberately disconnected.
+                    if (!this.error && !this.disconnected) {
+                        this.connect();
+                    }
                 }
                 if (result['requestId']) {
                     var requestId = result['requestId'];
