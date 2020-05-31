@@ -5,5 +5,12 @@ The released version is available here:
 
 https://www.construct.net/en/make-games/addons/321/atheios-blockchain-module
 
+Docuentation for the plugin and the underlying GARP protocol can be found in the
+Atheios documentation: 
+
+https://atheios.readthedocs.io
+
+
+
 
 
