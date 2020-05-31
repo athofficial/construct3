@@ -19,7 +19,12 @@
 					"local": {
 						"name": "local",
 						"desc": "local"
+					},
+					"testapi": {
+						"name": "testapi",
+						"desc": "testapi"
 					}
+
 				},
 				"aceCategories": {
 					"connection": "Connection"

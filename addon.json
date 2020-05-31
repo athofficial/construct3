@@ -3,10 +3,10 @@
 	"type": "plugin",
 	"name": "Atheios Module",
 	"id": "AtheiosTeam_AtheiosModule",
-	"version": "0.1.4.0",
+	"version": "0.1.5.0",
 	"author": "LegacyTRX",
 	"website": "https://www.atheios.org",
-	"documentation": "https://docs.atheios.org/construct3",
+	"documentation": "https://atheios.readthedocs.io",
 	"description": "Atheios Construct 3 module",
 	"editor-scripts": [
 						"plugin.js",

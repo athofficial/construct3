@@ -12,7 +12,7 @@
 	const PLUGIN_ID = "AtheiosTeam_AtheiosModule";
 	////////////////////////////////////////////
 	
-	const PLUGIN_VERSION = "0.1.4.0";
+	const PLUGIN_VERSION = "0.1.5.0";
 	const PLUGIN_CATEGORY = "general";
 	
 	const PLUGIN_CLASS = SDK.Plugins.AtheiosTeam_AtheiosModule = class AtheiosModulePlugin extends SDK.IPluginBase
@@ -54,7 +54,8 @@
 			this._info.SetProperties([
 				new SDK.PluginProperty("text", "apiKey", "value"),
 				new SDK.PluginProperty("text", "apiSecret", "value"),
-				new SDK.PluginProperty("text", "local", "value")
+				new SDK.PluginProperty("text", "local", "value"),
+				new SDK.PluginProperty("text", "testapi", "value")
 
 			]);
 

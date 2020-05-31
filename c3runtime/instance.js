@@ -12,12 +12,14 @@
 			this._apiKeyAth = 0;
 			this._apiSecretAth = 0;
 			this._local="true";
+			this._testapi="true";
 
 			if (properties)
 			{
 				this._apiKeyAth = properties[0];
 				var apiSecretAth = properties[1];
 				this._local = properties[2];
+				this._testapi = properties[3];
 			}
 			else
 			{

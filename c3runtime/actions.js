@@ -11,6 +11,7 @@
 				key: this._apiKeyAth,
 				secret: this._apiSecretAth,
 				local: this._local,
+				testapi: this._testapi,
 				onNonce: this.onNonceAth,
 				onInit: this.onInitAth,
 				onMessage: this.onMessageAth,
@@ -35,12 +36,12 @@
 				key: this._apiKeyAth,
 				secret: this._apiSecretAth,
 				local: this._local,
+				testapi: this._testapi,
 				onNonce: this.onNonceAth,
 				onInit: this.onInitAth,
 				onMessage: this.onMessageAth,
 				logger: console.log
 			};
-
 			this.atheios.initLive(data);
 
 		},
