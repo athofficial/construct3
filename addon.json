@@ -1,13 +1,13 @@
 ﻿{
 	"is-c3-addon": true,
 	"type": "plugin",
-	"name": "Atheios Module",
+	"name": "Atheios GARP Module",
 	"id": "AtheiosTeam_AtheiosModule",
-	"version": "0.1.5.0",
+	"version": "0.3.0.0",
 	"author": "LegacyTRX",
 	"website": "https://www.atheios.org",
-	"documentation": "https://atheios.readthedocs.io",
-	"description": "Atheios Construct 3 module",
+	"documentation": "https://garp.readthedocs.io",
+	"description": "GARP Construct 3 module",
 	"editor-scripts": [
 						"plugin.js",
 						"type.js",

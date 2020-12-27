@@ -1,4 +1,7 @@
-/* global define, module, require */
+// GARP API javascript module 0.3.0
+// Works towards the GARP framework
+// https://www.garp.io
+// https://garp.readthedocs.io
 
 
 (function (root, factory) {
@@ -13,7 +16,7 @@
         root.Atheios = factory(root.CryptoJS, root.WebSocket || root.MozWebSocket);
     }
 }(this, function(CryptoJS, WebSocket) {
-    var protocolid=2;   // equals v.0.1.5
+    var protocolid=4;
 
     var Atheios = function() {};
     console.log("Defining Atheios scope");
@@ -175,7 +178,7 @@
             // Extract any auth token.
             if (result['authToken']) {
                 this.authToken = result['authToken'];
-                delete result['authToken'];
+//                delete result['authToken'];
             }
 
             if (result['connectUrl']) {
@@ -198,11 +201,8 @@
             } else if (resultType.match(/Response$/)){
                 if (result['error']) {
                     console.log("Error found.");
-//                    this.disconnect();
-                    // Attemp a re-connection if not in error state or deliberately disconnected.
-                    if (!this.error && !this.disconnected) {
-                        this.connect();
-                    }
+                    this.error=true;
+                    this.disconnect();
                 }
                 if (result['requestId']) {
                     var requestId = result['requestId'];
